@@ -1,0 +1,19 @@
+<section id="mini-bio">
+    <header><i class="fas fa-music"></i> Nästa konsert:</header>
+            
+    <!-- TODO: Localize this -->
+        {{ range first 1 (where (where .Site.Pages.ByDate "Section" "event") "Date.Unix" "ge" now.Unix) }}
+            <p>
+            <a href="{{.Permalink}}"/>{{ .Title }}</a>
+            {{with .OutputFormats.Get "ics" -}}<a href="{{ .Permalink }}"><i class="far fa-calendar-plus" aria-hidden="true"></i>Lägg till...</a>{{- end }}<br />
+            Datum: <span>{{ .Date.Format "2006-01-02 03:04" }}</span>
+            <br />
+            Plats: 
+            {{ with .Params.eventLocation }} 
+            <a href="{{ .link }}"><i>{{ .title}}</i> <i class="fa fa-map-marker-alt fa-lg" aria-hidden="true"></i></a>
+            {{ end }}
+            </p>
+        {{ else }}
+        ...inga planerade konserter
+        {{ end }}
+</section>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="{{ .Page.Language | default "en" }}">
+{{ partial "head" . }}
+
+<body>
+    {{ partial "site-header" . }}
+    <div id="wrapper">
+        {{ partial "site-intro" . }}
+        <main id="site-main">
+            {{/*  <article class="post">
+                <header>
+                    <div class="title">
+                        {{ if $.Scratch.Get "h1" }}
+                        <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+                        {{ $.Scratch.Set "h1" false }}
+                        {{ else }}
+                        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+                        {{ end }}
+                        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+                    </div>
+                </header>
+                <div id="content">
+                    {{ .Content }}
+                </div>
+            </article>  */}}
+            <article class="post">
+                <!-- TODO: Localize this -->
+                <h4>Kommande uppträdanden</h4>
+                <ul class="upcoming-events">
+                    {{ range first 5 (where (where .Site.Pages.ByDate "Section" "event") "Date.Unix" "ge" now.Unix) }}
+                    <li>
+                        <i class="fas fa-music"></i>
+                        {{ .Title }} den
+                        <!-- add span for event date -->
+                        <span>{{ .Date.Format "2006-01-02 03:04" }}</span>
+                        {{ with .Params.eventLocation }} 
+                        <a href="{{ .link }}"><i class="fa fa-map-marker-alt fa-lg" aria-hidden="true"></i><i>{{ .title}}</i></a>
+                        {{ end }}
+                    </li>
+                    {{ end }}
+                </ul>
+            </article>
+            <article class="post">
+                <!-- TODO: Localize this -->
+                <h4>Uppträdanden som varit</h4>
+                <ul class="past-events">
+                    {{ range first 5 (where (where .Site.Pages.ByDate "Section" "event") "Date.Unix" "lt" now.Unix) }}
+                    <li>
+                        <a href="{{ .Permalink}}">{{ .Title }}</a> den
+                        <!-- add span for event date -->
+                        <span>{{ .Date.Format "2006-01-02 03:04" }}</span>
+                        {{ with .Params.eventLocation }} 
+                        <a href="{{ .link }}"><i class="fa fa-map-marker-alt fa-lg" aria-hidden="true"></i><i>{{ .title}}</i></a>
+                        {{ end }}
+                    </li>
+                    {{ end }}
+                </ul>
+            </article>
+        </main>
+        {{ partial "site-sidebar" . }}
+        {{ partial "site-footer" . }}
+        {{ partial "scripts" . }}
+    </div>
+</body>
+
+</html>

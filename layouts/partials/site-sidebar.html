@@ -46,8 +46,9 @@
       </section>
     {{ end }}
   {{ end }}
-
-  <section id="mini-bio">
+   
+  {{ partial "upcoming-event" . }}
+  {{/*  <section id="mini-bio">
     <header>
       <h1>{{ i18n "about" }}</h1>
     </header>
@@ -55,5 +56,5 @@
     <footer>
       <a href="{{ "about" | relLangURL }}" class="button">{{ i18n "learn_more" }}</a>
     </footer>
-  </section>
+  </section>  */}}
 </section>

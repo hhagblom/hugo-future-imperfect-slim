@@ -38,6 +38,8 @@
   other = "Gå tillbaka"
 [blog]
   other = "Blog"
+[event]
+  other = "Uppträdanden"
 [contact]
   other = "Kontakt"
 [next_page]

@@ -1182,7 +1182,7 @@ textarea {
  /* Site Header */
 
  #site-header {
-   background-color: #ffffff;
+   background-color: #eed282;
    border-bottom: solid 1px rgba(160, 160, 160, 0.3);
    -webkit-box-shadow:  0 3px 6px rgba(0,0,0,0.19), 0 3px 6px rgba(0,0,0,0.23);
    -moz-box-shadow:  0 3px 6px rgba(0,0,0,0.19), 0 3px 6px rgba(0,0,0,0.23);
@@ -1243,8 +1243,8 @@ textarea {
    display: flex;
    justify-content: space-between;
    .flyout-menu {
-     right: -177px;
-     width: 177px;
+     right: -200px;
+     width: 200px;
      @include for-desktop-up {
        background-color: unset;
        border: none;

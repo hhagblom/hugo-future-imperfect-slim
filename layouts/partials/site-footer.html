@@ -1,4 +1,5 @@
 <footer id="site-footer">
+  <a href="https://www.svenskakyrkan.se/Skurup">{{ partial "svenska-kyrkan" . }}</a>
   {{ if or (.Site.Params.footer.rssFooter) (.Site.Params.footer.socialFooter) }}
       <ul class="socnet-icons">
         {{ if .Site.Params.footer.rssFooter }}{{ partial "rss-icon" . }}{{ end }}
